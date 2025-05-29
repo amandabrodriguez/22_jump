@@ -21,9 +21,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //F = m * a
+            isOnGround = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isOnGround = true;
     }
 }
