@@ -5,25 +5,36 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private Rigidbody rb;
+    private Rigidbody _rb;
     public float jumpForce = 10f;
     public float gravityMultiplier = 2;
     public bool isOnGround = true;
+    private bool gameOver = false;
+
+    public bool GameOver
+    {
+        get => gameOver;
+        set
+        {
+            if (gameOver) return;
+            gameOver = value;
+        }
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !GameOver)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //F = m * a
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //F = m * a
             isOnGround = false;
         }
     }
@@ -33,6 +44,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over!");
         }
     }
 }
