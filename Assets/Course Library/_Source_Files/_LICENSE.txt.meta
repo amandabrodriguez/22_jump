@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 6daf71e7a619b48adbeaaa274958dacf
+guid: 9f2c8540fbeee4bf28bbda601aa0a270
 TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 146039
-  packageName: Create with Code | Prototype 3 - Run and Jump
-  packageVersion: 1.0
-  assetPath: Assets/Course Library/_Source_Files/_LICENSE.txt
-  uploadId: 330952
