@@ -15,7 +15,7 @@ This Unity 3D project is a simple endless runner where the player must jump over
 - Project developed as part of a Unity learning course focused on core gameplay foundations.
 
 ## Technical requirements:
-- **Unity Version:** 6000.0.47f1 or higher.
+- **Unity Version:** 6000.0.47f1.
 - **Render Pipeline:** URP.
 - **Platforms:** PC.
 
